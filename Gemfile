@@ -73,3 +73,5 @@ end
  gem 'devise'
  gem 'bootstrap', '~> 5.1.3'
  gem 'jquery-rails'
+ gem "letter_opener", group: :development
+ gem 'omniauth-github'

@@ -1,1 +1,35 @@
 <%= render "navbar" %>
+<br><br><br>
+<% if user_signed_in? %>
+<div class="">
+    <div class="container">
+        <table class="table">
+            <caption>Users's Record </caption>
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Email</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+            
+          <% u = current_user %>
+              <tr>
+                <th scope="row"> <%= u.id%></th>
+                <td><%= u.first_name%></td>
+                <td><%= u.last_name%></td>
+                <td><%= u.email%></td>
+                <td><%= link_to 'Edit', edit_user_registration_path, class: "nav-link"%></td>
+              </tr>
+          <% else %> 
+          
+            </tbody>
+          </table>
+    </div>
+</div>
+
+<% end %>
+   <div></div>

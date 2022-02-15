@@ -1,0 +1,39 @@
+<%= render "homes/navbar" %>
+<br><br><br>
+<% if user_signed_in? %>
+<div class="">
+    <div class="container">
+        <table class="table">
+            <caption><%= current_user.first_name%>'s Products</caption>
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Color</th>
+                <th scope="col">Price</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+            
+          <% @products.each do |p|%>
+              <tr>
+                <th scope="row"> <%= p.id%></th>
+                <td><%= p.name%></td>
+                <td><%= p.color%></td>
+                <td><%= p.price%></td>
+                <td><%= link_to 'Detail', product_path(p), class: "nav-link"%>
+                    <%= link_to 'Edit', edit_product_path(p), class: "nav-link"%>
+                    <%= link_to 'Delete', p, method: :destroy, class: "nav-link"%>
+                </td>
+              </tr>
+              <% end %>
+          <% else %> 
+          
+            </tbody>
+          </table>
+    </div>
+</div>
+
+<% end %>
+   <div></div>
