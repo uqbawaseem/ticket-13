@@ -1,14 +1,33 @@
-<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Toggle right offcanvas</button>
-
-<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-  <div class="offcanvas-header">
-    <h5 id="offcanvasRightLabel">Offcanvas right</h5>
-    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-  </div>
-  <div class="offcanvas-body">
-    ...
-  </div>
+<div class="container">
+<h3>Product's Detail</h3><br>
+  <table class="table" style="width: 70%;">
+    <thead>
+      <tr>
+        <th scope="col">Image</th>
+        <%if @product.image.attached?%>
+        <th scope="col">
+          <%= image_tag(@product.image, style: "width: 20%; height: 10%")%>
+        </th>
+          <% end %>
+  
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Name</th>
+        <td><%= @product.name%></td>
+  
+      </tr>
+      <tr>
+        <th scope="row">Color</th>
+        <td><%= @product.color%></td>
+  
+      </tr>
+      <tr>
+        <th scope="row">Price</th>
+        <td><%= @product.price%></td>
+  
+      </tr>
+    </tbody>
+  </table>
 </div>
-<%if @product.image.attached?%>
-<%= image_tag(@product.image)%>
-<% end %>
