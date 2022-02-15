@@ -56,6 +56,6 @@ class ProductsController < ApplicationController
     @product = current_user.products.find(params[:id])
   end
   def product_params 
-    params.require(:product).permit(:name, :color, :price)
+    params.require(:product).permit(:name, :color, :price, :images )
   end
 end

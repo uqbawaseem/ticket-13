@@ -75,3 +75,4 @@ end
  gem 'jquery-rails'
  gem "letter_opener", group: :development
  gem 'omniauth-github'
+ gem "image_processing", ">= 1.2"

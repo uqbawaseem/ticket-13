@@ -1,4 +1,6 @@
 <%= form_for @product do |f|%>
+    <%= f.label :Image%>
+    <%= f.file_field :image%><br><br>
     <%= f.label :Name%>
     <%= f.text_field :name%><br><br>
     <%= f.label :came%>
