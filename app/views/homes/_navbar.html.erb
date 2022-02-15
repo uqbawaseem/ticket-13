@@ -1,0 +1,25 @@
+<% if user_signed_in? %>
+<ul class="nav nav-pills">
+  <li class="nav-item">
+    <a class="nav-link disabled "><%= current_user.name%></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Products</a>
+  </li>
+  <li class="nav-item" style="margin-left:79%">
+    <%= link_to 'logout', destroy_user_session_path, method: :destroy,class: "nav-link"%>
+  </li>
+</ul>
+<% else %>
+<ul class="nav nav-pills">
+  <li class="nav-item">
+    <a class="nav-link">Stranger</a>
+  </li>
+  <li class="nav-item" style="margin-left:79%">
+    <%= link_to 'Sign up', new_user_registration_path, class: "nav-link"%>
+  </li>
+    <li class="nav-item">
+    <%= link_to 'Sign in', new_user_session_path, class: "nav-link"%>
+  </li>
+</ul>
+<% end %>
