@@ -12,6 +12,7 @@ class ProductsController < ApplicationController
 
   def show
     product_find
+    
   end
   
 
@@ -42,13 +43,26 @@ class ProductsController < ApplicationController
   def update
     product_find
     if @product.update(product_params)
-        flash[:success] = "Object was successfully updated"
+        flash[:success] = "Product was successfully updated"
         redirect_to products_path
       else
         flash[:error] = "Something went wrong"
         render 'edit'
       end
   end
+
+  def destroy
+    product_find 
+    @product.destroy
+    if @product.destroy
+      flash[:success] = 'Product was successfully deleted.'
+      redirect_to products_path
+    else
+      flash[:error] = 'Something went wrong'
+      redirect_to products_path
+    end
+  end
+  
   
 
   private 
@@ -56,6 +70,6 @@ class ProductsController < ApplicationController
     @product = current_user.products.find(params[:id])
   end
   def product_params 
-    params.require(:product).permit(:name, :color, :price, :images )
+    params.require(:product).permit(:name, :color, :price, :image )
   end
 end

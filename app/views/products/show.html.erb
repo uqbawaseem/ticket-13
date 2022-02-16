@@ -9,25 +9,27 @@
           <%= image_tag(@product.image, style: "width: 20%; height: 10%")%>
         </th>
           <% end %>
-  
       </tr>
     </thead>
     <tbody>
       <tr>
         <th scope="row">Name</th>
         <td><%= @product.name%></td>
-  
       </tr>
       <tr>
         <th scope="row">Color</th>
         <td><%= @product.color%></td>
-  
       </tr>
       <tr>
         <th scope="row">Price</th>
         <td><%= @product.price%></td>
-  
+      </tr>
+      <tr>
+      
+        <th scope="row">Suggestions</th>
+        <td><%= @product.suggestions.first.suggestion%></td>
       </tr>
     </tbody>
   </table>
+  
 </div>

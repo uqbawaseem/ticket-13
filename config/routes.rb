@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-
   root 'homes#index'
-  resources :products
+  resources :products, :suggestions
+
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
 
   devise_scope :user do  

@@ -24,12 +24,19 @@
                 <td><%= p.price%></td>
                 <td><%= link_to 'Detail', product_path(p), class: "nav-link"%>
                     <%= link_to 'Edit', edit_product_path(p), class: "nav-link"%>
-                    <%= link_to 'Delete', p, method: :destroy, class: "nav-link"%>
+                    <%= button_to 'Delete', p, method: :delete, class: "btn btn-danger"%>
                 </td>
               </tr>
               <% end %>
-          <% else %> 
-          
+                <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th><%= link_to 'Back', root_path%></th>
+                <th ></th>
+              </tr>
+<% else %> 
             </tbody>
           </table>
     </div>
@@ -37,6 +44,7 @@
 
 <% end %>
    <div></div>
+      
 <!-- <div class="container">
     <div class="row">
         <% @products.each do |p|%>
@@ -57,3 +65,4 @@
         <% end %>
     </div>
 </div> -->
+          <%= link_to 'Back', root_path%>
