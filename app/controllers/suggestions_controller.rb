@@ -11,7 +11,7 @@ class SuggestionsController < ApplicationController
 
   def show
     suggestion_find
-    @p_s = 
+    
   end
   
 
@@ -20,7 +20,7 @@ class SuggestionsController < ApplicationController
     @suggestion  = current_user.suggestions.new(suggestion_params)
     if @suggestion.save
       flash[:success] = "suggestion successfully created"
-      redirect_to suggestions_path
+      redirect_to root_path
     else
       flash[:error] = "Something went wrong"
       render 'new'
