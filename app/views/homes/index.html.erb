@@ -24,13 +24,28 @@
                 <td><%= u.email%></td>
                 <td><%= link_to 'Edit', edit_user_registration_path, class: "nav-link"%></td>
               </tr>
-          <% else %> 
+          
           
             </tbody>
           </table>
     </div>
 </div>
-<%= current_user.suggestions.fisrt.suggestion%>
+    
 
-<% end %>
+
+<% else %> 
    <div></div>
+   <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+    </div>
+    <strong>Suggestions (<%= current_user.suggestions.count%>) : </strong>
+    <div class="col-md-6">
+      <% current_user.suggestions.each do |s|%>
+          <%= s.suggestion.capitalize%>.<br>
+          <% end %>
+    </div>
+  </div>
+</div>
+          

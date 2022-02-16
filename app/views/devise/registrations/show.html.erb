@@ -1,7 +1,9 @@
 <div class="container">
-<h3>Product's Detail</h3><br>
+<h3>Uses's Detail</h3><br>
   <table class="table" style="width: 70%;">
-    <thead>
+    <%
+=begin%>
+ <thead>
       <tr>
         <th scope="col">Image</th>
         <%if @product.image.attached?%>
@@ -10,27 +12,29 @@
         </th>
           <% end %>
       </tr>
-    </thead>
+    </thead> 
+<%
+=end%>
     <tbody>
       <tr>
-        <th scope="row">Name</th>
-        <td><%= @product.name%></td>
+        <th scope="row">First name</th>
+        <td><%= current_user.first_name%></td>
       </tr>
       <tr>
-        <th scope="row">Color</th>
-        <td><%= @product.color%></td>
+        <th scope="row">Last name</th>
+        <td><%= current_user.last_name%></td>
       </tr>
       <tr>
-        <th scope="row">Price</th>
-        <td><%= @product.price%></td>
+        <th scope="row">Email</th>
+        <td><%= current_user.email%></td>
       </tr>
       <tr>
-      
-        <th scope="row">Suggestions</th>
-        <% @product.suggestions.each do |s|%>
-        <td><%= s.suggestion.capitalize%><br></td>
+        <th scope="row">Email</th>
+        <%= @u_suggestions.each do |s|%>
+        <td><%= s.suggestion%></td>
         <% end %>
       </tr>
+
     </tbody>
   </table>
   

@@ -11,6 +11,7 @@ class SuggestionsController < ApplicationController
 
   def show
     suggestion_find
+    @p_s = 
   end
   
 
@@ -54,10 +55,10 @@ class SuggestionsController < ApplicationController
     @suggestion.destroy
     if @suggestion.destroy
       flash[:success] = 'suggestion was successfully deleted.'
-      redirect_to suggestions_path
+      redirect_to products_path
     else
       flash[:error] = 'Something went wrong'
-      redirect_to suggestions_path
+      redirect_to products_path
     end
   end
   
@@ -68,6 +69,6 @@ class SuggestionsController < ApplicationController
     @suggestion = current_user.suggestions.find(params[:id])
   end
   def suggestion_params 
-    params.require(:suggestion).permit(:name, :color, :price, :image )
+    params.require(:suggestion).permit(:suggestionable_id, :suggestionable_type, :suggestion)
   end
 end

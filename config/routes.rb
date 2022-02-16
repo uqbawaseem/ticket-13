@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   root 'homes#index'
   resources :products, :suggestions
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
+  devise_for :users, :controllers => { 
+    :omniauth_callbacks => "callbacks",
+     sessions: 'users/sessions' 
+    }
 
   devise_scope :user do  
     get '/users/sign_out' => 'devise/sessions#destroy'     

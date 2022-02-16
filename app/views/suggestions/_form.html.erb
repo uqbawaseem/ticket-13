@@ -1,5 +1,14 @@
+
 <%= form_for @suggestion do |f|%>
-    <%= f.label :Suggestion%>
-    <%= f.file_field :suggestion%><br><br>
-    <%= f.submit :"Add"%>
+<table>
+    <tr>
+        <td>Suggestion: </td>
+        <td><%= f.text_area :suggestion%></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td style="text-align: center;"><%= f.submit :"Add"%></td>
+    </tr>
+</table>
+
 <% end %>
