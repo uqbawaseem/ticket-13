@@ -3,7 +3,7 @@
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_many :products, dependent: :destroy
   has_one_attached :image
-  has_many :suggestions, as: :suggestionable
+  has_many :suggestions, as: :suggestionable, dependent: :destroy
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :lockable, :omniauthable, :omniauth_providers => [:github, :facebook]
 end
