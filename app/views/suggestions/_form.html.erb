@@ -1,14 +1,7 @@
 
-<%= form_for @suggestion do |f|%>
-<table>
-    <tr>
-        <td>Suggestion: </td>
-        <td><%= f.text_area :suggestion%></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td style="text-align: center;"><%= f.submit :"Add"%></td>
-    </tr>
-</table>
-
+<%= form_for Suggestion.new do |f| %>
+    <%= f.hidden_field :suggestionable_id, value: params["id"] %>
+    <%= f.hidden_field :suggestionable_type, value: params["controller"].singularize.capitalize %>
+    <p>Suggestion: <%= f.text_area :suggestion %></p>
+    <%= f.submit %>
 <% end %>

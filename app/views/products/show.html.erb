@@ -25,13 +25,20 @@
         <td><%= @product.price%></td>
       </tr>
       <tr>
-      
+      <tr>
         <th scope="row">Suggestions</th>
+        <td>
+         <ol>
         <% @product.suggestions.each do |s|%>
-        <td><%= s.suggestion.capitalize%><br></td>
+          <li>
+            <%= s.suggestion.capitalize%>
+          </li>
         <% end %>
+         </ol>
+        </td>
       </tr>
     </tbody>
   </table>
-  
+  <h4>Add New Suggestion</h4>
+  <%= render 'suggestions/form'%>
 </div>

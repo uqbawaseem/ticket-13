@@ -2,46 +2,59 @@
 <br><br><br>
 <% if user_signed_in? %>
 <div class="">
-    <div class="container">
-        <table class="table">
-            <caption>Users's Record </caption>
-            <thead>
-              <tr>
-                <th scope="col">Id</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Email</th>
-                <th scope="col">Action</th>
-              </tr>
-            </thead>
-            <tbody>
-            
-          <% u = current_user %>
-              <tr>
-                <th scope="row"> <%= u.id%></th>
-                <td><%= u.first_name%></td>
-                <td><%= u.last_name%></td>
-                <td><%= u.email%></td>
-                <td><%= link_to 'Edit', edit_user_registration_path, class: "nav-link"%></td>
-              </tr>
+  <div class="container">
+      <table class="table">
+          <caption>Users's Record </caption>
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">First</th>
+              <th scope="col">Last</th>
+              <th scope="col">Email</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
           
-          
-            </tbody>
-          </table>
-    </div>
-</div>
-<div class="container">
-  <div class="row">
-    <div class="col-md-6">
-    </div>
-    <strong>Suggestions (<%= current_user.suggestions.count%>) : </strong>
-    <div class="col-md-6">
-      <% current_user.suggestions.each do |s|%>
-          <%= s.suggestion.capitalize%>.<br>
-          <% end %>
-    </div>
+        <% u = current_user %>
+            <tr>
+              <th scope="row"> <%= u.id%></th>
+              <td><%= u.first_name%></td>
+              <td><%= u.last_name%></td>
+              <td><%= u.email%></td>
+              <td><%= link_to 'Edit', edit_user_registration_path, class: "nav-link"%></td>
+            </tr>
+        
+        
+          </tbody>
+        </table>
   </div>
 </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+      </div>
+      <strong>Suggestions (<%= current_user.suggestions.count%>) : </strong>
+      <div class="col-md-6">
+        <ol>
+          <% current_user.suggestions.each do |s|%>
+            <li>
+              <%= s.suggestion.capitalize%>.
+            </li>
+        <% end %>
+        </ol>  
+            
+      </div>
+    </div><br>
+    <h4>Give New Suggestion</h4>
+    <%= form_for Suggestion.new do |f| %>
+    <%= f.hidden_field :suggestionable_id, value: "#{current_user.id}" %>
+    <%= f.hidden_field :suggestionable_type, value: "User"%>
+    <p>Suggestion: <%= f.text_area :suggestion %></p>
+    <%= f.submit %>
+<% end %>
+  </div>
 <% else %> 
-   <div></div>
+  <div></div>
    <% end %>
+    

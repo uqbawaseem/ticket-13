@@ -7,5 +7,11 @@
     <%= f.text_field :color%><br><br>
     <%= f.label :Price%>
     <%= f.text_field :price%><br><br>
+    <!-- <li>
+    <%= f.fields_for :roles do |e| %>
+    <%= e.hidden_field :suggestionable_type, value: 'product' %>
+    <%= e.text_field :suggestion %>
+<% end %>
+    </li> -->
     <%= f.submit :"Add"%>
 <% end %>

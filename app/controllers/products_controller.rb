@@ -70,6 +70,6 @@ class ProductsController < ApplicationController
     @product = current_user.products.find(params[:id])
   end
   def product_params 
-    params.require(:product).permit(:name, :color, :price, :image )
+    params.require(:product).permit(:name, :color, :price, :image, suggestions_attributes: [:suggestionable_type, :suggestions] )
   end
 end
